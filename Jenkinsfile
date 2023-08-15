@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-        // a.i. Agent should be based on the Dockerfile you created in step 1 and run in privileged mode with label zip-job-docker
-        dockerfile {
-            filename 'Dockerfile'
-            label 'zip-job-docker'
-            args '--privileged'
-        }
-    }
+    
     stages {
         stage('Build') {
             // b. Build stage should execute the zip_job.py you've created in step 2
