@@ -28,6 +28,6 @@ node('zip-job-docker') {
                  body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' finished with result: ${currentBuild.currentResult}"
         }
     }
+    // e. Cleanup stage - delete the workspace
+    cleanWs()
 }
-// e. Cleanup stage - delete the workspace
-cleanWs()
