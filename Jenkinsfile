@@ -33,7 +33,7 @@ pipeline {
         stage('Report') {
             // d. Report stage - send email with job status in the subject to some email address
             steps {
-                mail to: 'some-email@example.com',
+                mail to: 'nimrodfix@gmail.com',
                      subject: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]': ${currentBuild.currentResult}",
                      body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' finished with result: ${currentBuild.currentResult}"
             }
