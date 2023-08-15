@@ -21,8 +21,8 @@ pipeline {
                     // Get the VERSION environment variable from the Docker image
                     def version = sh(returnStdout: true, script: 'echo $VERSION').trim()
                     // Set Artifactory server, user, password, and repository to upload to
-                    def server = "http://10.0.2.30:8082"
-                    def user = "nimrod"
+                    def server = "http://127.0.0.1:8082"
+                    def user = "admin"
                     def password = "Dc@U57!{y22T*"
                     def repository = "targil"
                     // Upload all zip files to Artifactory
