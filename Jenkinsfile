@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             // b. Build stage should execute the zip_job.py you've created in step 2
             steps {
-                sh 'python3 /tmp/zip_job.py'
+                sh 'python3 ./zip_job.py'
             }
         }
         stage('Publish') {
