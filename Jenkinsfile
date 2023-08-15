@@ -15,18 +15,19 @@ pipeline {
             }
         }
         stage('Publish') {
-            // c. Publish stage should upload all the zip files created (only in case build stage succeeded) to Artifactory you installed using the following properties:
             steps {
                 script {
-                    // Get the VERSION environment variable from the Docker image
-                    def version = sh(returnStdout: true, script: 'echo $VERSION').trim()
-                    // Set Artifactory server, user, password, and repository to upload to
-                    def server = "http://10.0.2.30:8082"
-                    def user = "admin"
-                    def password = "Dc@U57!{y22T*"
-                    def repository = "targil"
-                    // Upload all zip files to Artifactory
-                    sh "find . -name '*.zip' -exec curl -u ${user}:${password} -X PUT ${server}/${repository}/{} -T {} \\;"
+                    def server = Artifactory.server 'artifactory'
+                    def uploadSpec = """{
+                        "files": [
+                            {
+                                "pattern": "*.zip",
+                                "target": "targil/"
+                            }
+                        ]
+                    }"""
+                    def buildInfo = server.upload spec: uploadSpec
+                    server.publishBuildInfo buildInfo
                 }
             }
         }
