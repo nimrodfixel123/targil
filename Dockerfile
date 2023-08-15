@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y python3
 # d. Install vim
 RUN apt-get install -y vim
 
+RUN apt-get install -y  curl
+
 # e. Install zip
 RUN apt-get install -y zip
 
