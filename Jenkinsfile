@@ -23,7 +23,7 @@ pipeline {
                     // Set Artifactory server, user, password, and repository to upload to
                     def server = "http://10.0.2.30:8082"
                     def user = "nimrod"
-                    def password = "Dc@U57!{y22T*}"
+                    def password = "Dc@U57!{y22T*"
                     def repository = "targil"
                     // Upload all zip files to Artifactory
                     sh "find . -name '*.zip' -exec curl -u ${user}:${password} -X PUT ${server}/${repository}/{} -T {} \\;"
