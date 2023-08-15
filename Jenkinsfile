@@ -1,5 +1,5 @@
 pipeline {
-    
+     agent any 
     stages {
         stage('Build') {
             // b. Build stage should execute the zip_job.py you've created in step 2
